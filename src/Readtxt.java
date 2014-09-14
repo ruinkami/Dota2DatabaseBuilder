@@ -520,21 +520,21 @@ public class Readtxt {
 			
 			
 			//∆•≈‰name_sc
-			if(load_ability && a.name_sc.equals("")){
+			if(load_ability && a.name_sc==null){
 				a.name_sc=findInSC("DOTA_Tooltip_ability_"+a.v_name);
 				if(a.name_sc.equals("")){
 					a.name_sc=findInSC("DOTA_Tooltip_Ability_"+a.v_name);
 				}
 			}
 			//∆•≈‰name_en
-			if(load_ability && a.name_en.equals("")){
+			if(load_ability && a.name_en==null){
 				a.name_en=findInSC("[english]DOTA_Tooltip_ability_"+a.v_name);
 				if(a.name_en.equals("")){
 					a.name_en=findInSC("[english]DOTA_Tooltip_Ability_"+a.v_name);
 				}
 			}
 			//∆•≈‰desc_sc
-			if(load_ability && a.desc_sc.equals("")){
+			if(load_ability && a.desc_sc==null){
 				a.desc_sc=findInSC("DOTA_Tooltip_ability_"+a.v_name+"_Description");
 				if(a.desc_sc.equals("")){
 					a.desc_sc=findInSC("DOTA_Tooltip_ability_"+a.v_name+"_description");
@@ -547,7 +547,7 @@ public class Readtxt {
 				a.desc_sc=a.desc_sc.replaceAll("<font color='#cabe68'>", "").replaceAll("</font>", "");
 			}
 			//∆•≈‰desc_en
-			if(load_ability && a.desc_en.equals("")){
+			if(load_ability && a.desc_en==null){
 				a.desc_en=findInSC("[english]DOTA_Tooltip_ability_"+a.v_name+"_Description");
 				if(a.desc_en.equals("")){
 					a.desc_en=findInSC("[english]DOTA_Tooltip_ability_"+a.v_name+"_description");
@@ -560,21 +560,21 @@ public class Readtxt {
 				a.desc_sc=a.desc_sc.replaceAll("<font color='#cabe68'>", "").replaceAll("</font>", "");
 			}
 			//∆•≈‰lore_sc
-			if(load_ability && a.lore_sc.equals("")){
+			if(load_ability && a.lore_sc==null){
 				a.lore_sc=findInSC("DOTA_Tooltip_ability_"+a.v_name+"_Lore");
 				if(a.lore_sc.length()<=1){
 					a.lore_sc="";
 				}
 			}
 			//∆•≈‰lore_en
-			if(load_ability && a.lore_en.equals("")){
+			if(load_ability && a.lore_en==null){
 				a.lore_en=findInSC("[english]DOTA_Tooltip_ability_"+a.v_name+"_Lore");
 				if(a.lore_en.length()<=1){
 					a.lore_en="";
 				}
 			}
 			//∆•≈‰note_sc
-			if(load_ability && a.note_sc.equals("")){
+			if(load_ability && a.note_sc==null){
 				a.note_sc=findInSC("DOTA_Tooltip_ability_"+a.v_name+"_Note0");
 				a.note_sc=a.note_sc+"\r\n"+findInSC("DOTA_Tooltip_ability_"+a.v_name+"_Note1");
 				a.note_sc=a.note_sc+"\r\n"+findInSC("DOTA_Tooltip_ability_"+a.v_name+"_Note2");
@@ -582,7 +582,7 @@ public class Readtxt {
 				a.note_sc=a.note_sc+"\r\n"+findInSC("DOTA_Tooltip_ability_"+a.v_name+"_Note4");
 			}
 			//∆•≈‰note_en
-			if(load_ability && a.note_en.equals("")){
+			if(load_ability && a.note_en==null){
 				a.note_en=findInSC("[english]DOTA_Tooltip_ability_"+a.v_name+"_Note0");
 				a.note_en=a.note_en+"\r\n"+findInSC("[english]DOTA_Tooltip_ability_"+a.v_name+"_Note1");
 				a.note_en=a.note_en+"\r\n"+findInSC("[english]DOTA_Tooltip_ability_"+a.v_name+"_Note2");
@@ -677,7 +677,9 @@ public class Readtxt {
 		boolean load_item=false;
 		WriteSQL.connect();
 		boolean special_ready=false;
+		boolean recipe_ready=false;
 		int special_quote=0;
+		int recipe_quote=0;
 		while(i+2<item_string_list.size()){
 			//∆•≈‰v_name
 			if(i==item_string_list.size()-4 || 
@@ -814,21 +816,21 @@ public class Readtxt {
 			}
 			
 			//∆•≈‰name_sc
-			if(load_item && it.name_sc.equals("")){
+			if(load_item && it.name_sc==null){
 				it.name_sc=findInSC("DOTA_Tooltip_ability_"+it.v_name);
 				if(it.name_sc.equals("")){
 					it.name_sc=findInSC("DOTA_Tooltip_Ability_"+it.v_name);
 				}
 			}
 			//∆•≈‰name_en
-			if(load_item && it.name_en.equals("")){
+			if(load_item && it.name_en==null){
 				it.name_en=findInSC("[english]DOTA_Tooltip_ability_"+it.v_name);
 				if(it.name_en.equals("")){
 					it.name_en=findInSC("[english]DOTA_Tooltip_Ability_"+it.v_name);
 				}
 			}
 			//∆•≈‰desc_sc
-			if(load_item && it.desc_sc.equals("")){
+			if(load_item && it.desc_sc==null){
 				it.desc_sc=findInSC("DOTA_Tooltip_ability_"+it.v_name+"_Description");
 				if(it.desc_sc.equals("")){
 					it.desc_sc=findInSC("DOTA_Tooltip_ability_"+it.v_name+"_description");
@@ -842,7 +844,7 @@ public class Readtxt {
 				}
 			}
 			//∆•≈‰desc_en
-			if(load_item && it.desc_en.equals("")){
+			if(load_item && it.desc_en==null){
 				it.desc_en=findInSC("[english]DOTA_Tooltip_ability_"+it.v_name+"_Description");
 				if(it.desc_en.equals("")){
 					it.desc_en=findInSC("[english]DOTA_Tooltip_ability_"+it.v_name+"_description");
@@ -856,21 +858,21 @@ public class Readtxt {
 				}
 			}
 			//∆•≈‰lore_sc
-			if(load_item && it.lore_sc.equals("")){
+			if(load_item && it.lore_sc==null){
 				it.lore_sc=findInSC("DOTA_Tooltip_ability_"+it.v_name+"_Lore");
 				if(it.lore_sc.length()<=1){
 					it.lore_sc="";
 				}
 			}
 			//∆•≈‰lore_en
-			if(load_item && it.lore_en.equals("")){
+			if(load_item && it.lore_en==null){
 				it.lore_en=findInSC("[english]DOTA_Tooltip_ability_"+it.v_name+"_Lore");
 				if(it.lore_en.length()<=1){
 					it.lore_en="";
 				}
 			}
 			//∆•≈‰note_sc
-			if(load_item && it.note_sc.equals("")){
+			if(load_item && it.note_sc==null){
 				it.note_sc=findInSC("DOTA_Tooltip_ability_"+it.v_name+"_Note0");
 				it.note_sc=it.note_sc+"\r\n"+findInSC("DOTA_Tooltip_ability_"+it.v_name+"_Note1");
 				it.note_sc=it.note_sc+"\r\n"+findInSC("DOTA_Tooltip_ability_"+it.v_name+"_Note2");
@@ -878,7 +880,7 @@ public class Readtxt {
 				it.note_sc=it.note_sc+"\r\n"+findInSC("DOTA_Tooltip_ability_"+it.v_name+"_Note4");
 			}
 			//∆•≈‰note_en
-			if(load_item && it.note_en.equals("")){
+			if(load_item && it.note_en==null){
 				it.note_en=findInSC("[english]DOTA_Tooltip_ability_"+it.v_name+"_Note0");
 				it.note_en=it.note_en+"\r\n"+findInSC("[english]DOTA_Tooltip_ability_"+it.v_name+"_Note1");
 				it.note_en=it.note_en+"\r\n"+findInSC("[english]DOTA_Tooltip_ability_"+it.v_name+"_Note2");
@@ -964,6 +966,35 @@ public class Readtxt {
 						}else{
 							it.special_en=it.special_en+ts+" "+t_l[1].replace(" ", "/")+"\n";
 						}
+					}
+				}
+			}
+			//∆•≈‰recipe_rawø™ º
+			if(load_item && item_string_list.get(i).contains("\"ItemRecipe\"")){
+				recipe_ready=true;
+			}
+			if(load_item && recipe_ready){
+				if(item_string_list.get(i).contains("{")){
+					recipe_quote++;
+				}
+				if(item_string_list.get(i).contains("}")){
+					recipe_quote--;
+					if(recipe_quote==0){
+						if(it.recipe_raw.length()>1){
+							it.recipe_raw=it.recipe_raw.substring(0, it.recipe_raw.length()-1);
+						}
+						special_ready=false;
+					}
+				}
+				//System.out.println(item_string_list.get(i));
+				if(item_string_list.get(i).contains("01") || item_string_list.get(i).contains("02") || item_string_list.get(i).contains("03")){
+					//i++;
+					
+					String mode = "\"([0-9]*?)\"([\t ]*)\"(.*?)\"";
+					Pattern pattern = Pattern.compile(mode);
+					Matcher matcher = pattern.matcher(item_string_list.get(i));
+					if (matcher.find()) {
+						it.recipe_raw=it.recipe_raw+matcher.group(1)+"="+matcher.group(3)+",";
 					}
 				}
 			}

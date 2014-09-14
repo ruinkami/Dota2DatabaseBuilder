@@ -970,7 +970,7 @@ public class Readtxt {
 				}
 			}
 			//Æ¥Åärecipe_raw¿ªÊ¼
-			if(load_item && item_string_list.get(i).contains("\"ItemRecipe\"")){
+			if(load_item && item_string_list.get(i).contains("\"ItemRecipe\"") && it.recipe_raw.equals("")){
 				recipe_ready=true;
 			}
 			if(load_item && recipe_ready){
@@ -983,12 +983,10 @@ public class Readtxt {
 						if(it.recipe_raw.length()>1){
 							it.recipe_raw=it.recipe_raw.substring(0, it.recipe_raw.length()-1);
 						}
-						special_ready=false;
+						recipe_ready=false;
 					}
 				}
-				//System.out.println(item_string_list.get(i));
 				if(item_string_list.get(i).contains("01") || item_string_list.get(i).contains("02") || item_string_list.get(i).contains("03")){
-					//i++;
 					
 					String mode = "\"([0-9]*?)\"([\t ]*)\"(.*?)\"";
 					Pattern pattern = Pattern.compile(mode);
